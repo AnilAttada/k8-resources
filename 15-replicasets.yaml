@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: replicaset
+  namespace: roboshop
   labels:  #replicaset labels
     purpose: roboshop-demo
     project: roboshop
