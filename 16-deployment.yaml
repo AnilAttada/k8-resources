@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  namespace: roboshop
+  labels:  #deployment labels
+    purpose: deployment-demo
+    project: roboshop
+    tier: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      purpose: deployment-demo
+      project: roboshop
+      environment: prod
+  template:
+    metadata:
+      labels:
+        purpose: deployment-demo
+        project: roboshop
+        environment: prod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:stable-perl
