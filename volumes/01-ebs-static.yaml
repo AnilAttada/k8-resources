@@ -10,7 +10,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-0afe5054148f32de9
+    volumeHandle: vol-0afe5054148f32de9  #Need to change the volume ID
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -23,7 +23,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 15Gi
 ---
 apiVersion: v1
 kind: Pod
@@ -39,10 +39,10 @@ spec:
   - name: nginx
     image: nginx
     volumeMounts:
-    - name: ebs-static
+    - name: persistent-storage
       mountPath: /usr/share/nginx/html
   volumes:
-  - name: ebs-static
+  - name: persistent-storage
     persistentVolumeClaim:
       claimName: ebs-static
 ---
