@@ -19,6 +19,8 @@ metadata:
     purpose: headless-demo
     project: roboshop
 spec:
+  ports:
+  - port: 80
   selector:
     purpose: headless-demo
     project: roboshop
